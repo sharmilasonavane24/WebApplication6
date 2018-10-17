@@ -1,0 +1,11 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "devDependencies": {
+    "i": "^0.3.6",
+    "install": "^0.12.1",
+    "msteams-ui-icons-react": "^0.3.0",
+    "npm": "^6.4.1",
+    "soap": "^0.25.0"
+  }
+}

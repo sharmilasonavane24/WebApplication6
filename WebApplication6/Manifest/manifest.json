@@ -1,0 +1,72 @@
+﻿{
+  "$schema": "https://statics.teams.microsoft.com/sdk/v1.0/manifest/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.0",
+  "version": "1.0.0",
+  "id": "37291568-1785-4ee4-9606-871bccec4ad9",
+  "packageName": "com.terberg.sequenceplanner3",
+  "developer": {
+    "name": "Terberg",
+    "websiteUrl": "https://www.terbergspecialvehicles.com/en/",
+    "privacyUrl": "https://www.terbergspecialvehicles.com/en/privacy-policy/",
+    "termsOfUseUrl": "https://www.terbergspecialvehicles.com/en/disclaimer/"
+  },
+  "name": {
+    "short": "Sequence Planner3",
+    "full": "Sequence Planner3 App for Terberg Teams"
+  },
+  "description": {
+    "short": "Sequence Planner3 App for Terberg Teams",
+    "full": "This sample app provides a very simple app for Terberg Teams. You can extend this to add more content and capabilities."
+  },
+  "icons": {
+    "outline": "sp1.png",
+    "color": "sp2.png"
+  },
+  "accentColor": "#60A18E",
+  "staticTabs": [
+    {
+      "entityId": "home3",
+      "name": "home3",
+      "contentUrl": "https://736c94ef.ngrok.io/home",
+      "scopes": [ "team" ]
+    }
+  ],
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://736c94ef.ngrok.io/",
+      "canUpdateConfiguration": true,
+      "scopes": [ "team" ]
+    }
+  ],
+  "bots": [
+    {
+      "botId": "a5660269-4afa-4096-87c1-436ed0d51f55",
+      "needsChannelSelector": false,
+      "isNotificationOnly": false,
+      "scopes": [ "team", "personal" ]
+    }
+  ],
+  "composeExtensions": [
+    {
+      "botId": "a5660269-4afa-4096-87c1-436ed0d51f55",
+      "scopes": [ "personal", "team" ],
+      "commands": [
+        {
+          "id": "getRandomText",
+          "description": "Gets some random text and images that you can insert in messages for fun.",
+          "title": "Get some random text for fun",
+          "initialRun": true,
+          "parameters": [
+            {
+              "name": "cardTitle",
+              "description": "Card title to use",
+              "title": "Card title"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "permissions": [],
+  "validDomains": []
+}

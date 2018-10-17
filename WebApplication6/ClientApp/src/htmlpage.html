@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SOAP JavaScript Client Test</title>
+    <script type="text/javascript">
+        function soap() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open('GET', 'https://web-business-services-dev.azurewebsites.net/TerbergBusinessServices.svc', true);
+
+            // build SOAP request
+            var sr = '<?xml version="1.0" encoding="utf-8"?>' +
+                '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">' +
+                '<soapenv:Header/>' +
+                '<soapenv:Body>' +
+                '<tem:GetCompanies/>' +
+                '</soapenv:Body>' +
+                '</soapenv:Envelope>';
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4) {
+                    if (xmlhttp.status == 200) {
+                        alert('done. use firebug/console to see network response');
+                        alert(JSON.parse(xmlhttp.responseText));
+
+                    }
+                }
+            }
+            // Send the POST request
+          //  xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+            xmlhttp.send(sr);
+            // send request
+            // ...
+        }
+
+        var soap = require('soap-everywhere');
+        var url = 'https://web-business-services-dev.azurewebsites.net/TerbergBusinessServices.svc';
+        var args = { name: 'value' };
+        soap.createClient(url, function (err, client) {
+            client.MyFunction(args, function (err, result) {
+                console.log(result);
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <form name="Demo" action="" method="post">
+        <div>
+            <img src="images/Loading_icon.gif" />
+            <input type="button" value="Soap" onclick="soap();" />
+        </div>
+    </form>
+</body>
+</html>
